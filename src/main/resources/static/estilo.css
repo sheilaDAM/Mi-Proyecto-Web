@@ -1,0 +1,12 @@
+<style>
+    /* color de fondo de la barra de navegación */
+    .navbar {
+        background-color: #874f43;
+    }
+
+    /* color del texto del menú de la barra de navegación */
+    .navbar-brand,
+    .navbar-nav > li > a {
+        color: #ffffff; /* Blanco */
+    }
+</style>
