@@ -13,25 +13,43 @@ import javax.sql.DataSource;
 
 
 @Configuration
-public class ConfiguracionSeguridad {
-
+public class ConfiguracionSeguridadWeb {
+/*
     @Bean
     public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
         http
+
                 .authorizeHttpRequests(requests -> requests
-                        .requestMatchers("/menulogin", "/css/**", "/js/**", "/images/**").permitAll()
+                        .requestMatchers("/login", "/css/**", "/js/**", "/images/**").permitAll()
                                 .anyRequest().authenticated()
                 )
+
                 .formLogin(form -> form
-                        .loginPage("/menulogin")
+                        .loginPage("/login")
                         .permitAll()
                 )
                 .logout(logout -> logout
-                        .permitAll());
+                        .permitAll())
+                .csrf(Customizer.withDefaults()
+                    );
 
         return http.build();
     }
-
+*/
+    @Bean
+    public SecurityFilterChain defaultSecurityfilterChain(HttpSecurity http)throws Exception {
+        http
+                .authorizeHttpRequests(authorizeRequests ->
+                        authorizeRequests
+                                .anyRequest().authenticated()
+                )
+                .formLogin(form -> form
+                        .loginPage("/login")
+                        .permitAll()
+                );
+        // ...
+        return http.build();
+    }
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
