@@ -56,6 +56,11 @@
 			<artifactId>spring-security-config</artifactId>
 			<version>6.2.2</version>
 		</dependency>
+		<!-- Para poder utilizar las herramientas extra de Thymeleaf Security añadimos la siguiente dependencia -->
+		<dependency>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-springsecurity6</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
