@@ -11,7 +11,9 @@ public class ConfiguracionMvcWeb implements org.springframework.web.servlet.conf
          // "/403" - diseño página Error de Acceso Denegado (Forbidden)
         viewControllerRegistry.addViewController("/403").setViewName("403");
         // "/login" - diseño Página de Inicio de Sesión (login) personalizada
-        viewControllerRegistry.addViewController("/login").setViewName("login");
+        viewControllerRegistry.addViewController("/milogin").setViewName("milogin");
+        // "/homeweb" - diseño Página de inicio de la página web
+        viewControllerRegistry.addViewController("/homeweb").setViewName("homeweb");
     }
 
 }

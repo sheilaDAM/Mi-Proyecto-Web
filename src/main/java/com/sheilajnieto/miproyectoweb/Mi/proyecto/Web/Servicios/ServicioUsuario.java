@@ -8,8 +8,10 @@ import java.util.List;
 public interface ServicioUsuario {
 
     public Usuario guardar(UsuarioDTO registroDTO);
-
     public List<Usuario> listarUsuarios();
+    public Iterable<Usuario> obtenerUsuarios();
+    public Usuario obtenerUsuarioPorId(Long id);
+    public void eliminarUsuario(Long id);
 
 }
 

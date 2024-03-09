@@ -39,4 +39,19 @@ public class ServicioUsuarioImpl implements ServicioUsuario {
     public List<Usuario> listarUsuarios() {
         return repositorioUsuario.findAll();
     }
+
+    @Override
+    public Iterable<Usuario> obtenerUsuarios() {
+        return repositorioUsuario.findAll();
+    }
+
+    @Override
+    public Usuario obtenerUsuarioPorId(Long id) {
+        return repositorioUsuario.findById(id).orElse(null);
+    }
+
+    @Override
+    public void eliminarUsuario(Long id) {
+        repositorioUsuario.deleteById(id);
+    }
 }

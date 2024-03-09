@@ -44,7 +44,8 @@ public class ConfiguracionSeguridadWeb {
                                 .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
-                        .loginPage("/login")
+                        .loginPage("/milogin")
+                        .defaultSuccessUrl("/homeweb", true) //esta url es a la que se redirigirá si el inicio de sesión es exitoso
                         .permitAll()
                 );
         // ...

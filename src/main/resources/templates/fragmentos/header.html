@@ -1,0 +1,15 @@
+<header th:fragment="encabezado"> <!-- con fragment podemos luego llamar a la carpeta fragments y utilizar un html-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" th:href="@{/usuarios}">Gestión de usuarios/as</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/usuarios}">Usuarios/as</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/usuarios/nuevo}">Agregar usuario/a</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
