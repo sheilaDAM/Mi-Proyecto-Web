@@ -39,6 +39,8 @@
 </head>
 <body>
 <div class="container" th:replace="fragments/header::header"></div>
+<!-- el replace hace un width 100%), en cambio, si ponemos th:insert hace el header más pequeñito
+ej: <div class="container" th:insert="fragments/header::encabezado"></div> -->
 
 <div class="container center-form">
     <form th:action="@{/usuarios/guardar}" method="post" enctype="multipart/form-data" th:object="${usuario}"
