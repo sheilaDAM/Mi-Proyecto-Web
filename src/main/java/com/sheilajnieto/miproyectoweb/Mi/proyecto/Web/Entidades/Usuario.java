@@ -40,6 +40,14 @@ public class Usuario {
         this.id = id;
     }
 
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+    }
+
     public String getNombre() {
         return nombre;
     }

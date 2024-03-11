@@ -54,4 +54,14 @@ public class ServicioUsuarioImpl implements ServicioUsuario {
     public void eliminarUsuario(Long id) {
         repositorioUsuario.deleteById(id);
     }
+
+    @Override
+    public Usuario obtenerUsuarioPorEmail(String nombreUsuario) {
+        return repositorioUsuario.obtenerUsuarioPorEmail(nombreUsuario);
+    }
+
+    @Override
+    public Usuario obtenerUsuarioPorNombreUsuario(String nombreUsuario) {
+        return repositorioUsuario.obtenerUsuarioPorNombreUsuario(nombreUsuario);
+    }
 }

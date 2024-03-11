@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.function.Function;
 
 //clase para generar los métodos necesarios para generar, firmar y extraer información del token como el nombre de usuario y la fecha de expiración
+//Esta clase valida que el token no haya expirado y que el usuario que hace la petición sea el mismo que userDetails, que es una clase de Spring Security que contiene la información del usuario que se ha logeado
 //tras esta clase necesitaremos un filtro que intercepte las peticiones y compruebe si el token es válido (será la clase FiltroJWT)
 @Service
 public class JsonWebToken {
