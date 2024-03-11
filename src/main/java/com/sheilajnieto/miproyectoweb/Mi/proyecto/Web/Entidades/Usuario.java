@@ -12,11 +12,14 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "nombre_usuario")
+    private String nombreUsuario;
+
     @Column(name = "nombre")
     private String nombre;
 
-    @Column(name = "apellido")
-    private String apellido;
+    @Column(name = "apellidos")
+    private String apellidos;
 
     private String email;
     private String password;
@@ -45,12 +48,12 @@ public class Usuario {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getApellidos() {
+        return apellidos;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 
     public String getEmail() {
@@ -77,20 +80,20 @@ public class Usuario {
         this.roles = roles;
     }
 
-    public Usuario(Long id, String nombre, String apellido, String email, String password, Collection<Rol> roles) {
+    public Usuario(Long id, String nombre, String apellidos, String email, String password, Collection<Rol> roles) {
         super();
         this.id = id;
         this.nombre = nombre;
-        this.apellido = apellido;
+        this.apellidos = apellidos;
         this.email = email;
         this.password = password;
         this.roles = roles;
     }
 
-    public Usuario(String nombre, String apellido, String email, String password, Collection<Rol> roles) {
+    public Usuario(String nombre, String apellidos, String email, String password, Collection<Rol> roles) {
         super();
         this.nombre = nombre;
-        this.apellido = apellido;
+        this.apellidos = apellidos;
         this.email = email;
         this.password = password;
         this.roles = roles;

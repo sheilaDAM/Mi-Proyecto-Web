@@ -18,11 +18,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
 <div class="container" th:insert="fragments/header::encabezado"></div>
-<!-- el include hace el header más pequeñito, el replace hace un width 100%) -->
+<!-- el insert hace el header más pequeñito, el replace hace un width 100%) -->
 
 <div class="container mb-5">
     <div class="container mb-5">
-        <!-- comprobación de si existte un mensaje -->
+        <!-- comprobación de si existe un mensaje -->
         <div th:if="${message != null}" class="alert alert-success alert-dismissible fade show text-center message">
             <!-- Muestra el mensaje dinámicamente -->
             [[${message}]]
@@ -42,6 +42,7 @@
             <th>ID</th>
             <th>Nombre</th>
             <th>Apellidos</th>
+            <th>Nombre usuario</th>
             <th>Email</th>
             <th>Rol</th>
             <th>Acciones</th>
@@ -51,7 +52,8 @@
         <tr th:each="course : ${usuarios}">
             <td>[[${usuario.id}]]</td>
             <td>[[${usuario.nombre}]]</td>
-            <td>[[${usuario.apellido}]]</td>
+            <td>[[${usuario.apellidos}]]</td>
+            <td>[[${usuario.nombreUsuario}]]</td>
             <td>[[${usuario.email}]]</td>
             <td>[[${usuario.roles}]]</td>
             <td>

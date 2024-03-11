@@ -3,8 +3,9 @@ package com.sheilajnieto.miproyectoweb.Mi.proyecto.Web.Controlador.DTO;
 public class UsuarioDTO {
 
     private Long id;
+    private String nombreUsuario;
     private String nombre;
-    private String apellido;
+    private String apellidos;
     private String email;
     private String password;
 
@@ -24,12 +25,12 @@ public class UsuarioDTO {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getApellidos() {
+        return apellidos;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 
     public String getEmail() {
@@ -48,11 +49,20 @@ public class UsuarioDTO {
         this.password = password;
     }
 
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
 
-    public UsuarioDTO(String nombre, String apellido, String email, String password) {
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+    }
+
+
+    public UsuarioDTO(String nombreUsuario, String nombre, String apellidos, String email, String password) {
         super();
+        this.nombreUsuario = nombreUsuario;
         this.nombre = nombre;
-        this.apellido = apellido;
+        this.apellidos = apellidos;
         this.email = email;
         this.password = password;
     }

@@ -59,7 +59,7 @@ public class ControladorUsuario {
             Usuario usuario = servicioUsuarioImpl.obtenerUsuarioPorId(id);
             model.addAttribute("usuario", usuario);
             model.addAttribute("titulo", "Editar usuario/a");
-            return "formularioEditarUsuario";
+            return "formulariNuevoUsuario";
         }catch (Exception e) {
             redirectAttributes.addAttribute("mensaje", e.getMessage());
         }

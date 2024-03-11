@@ -12,6 +12,9 @@
                     <a class="nav-link" th:href="@{/usuarios/nuevo}">Agregar usuario/a</a>
                 </li>
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}" style="cursor: pointer;">Cerrar sesión</a></li>
+            </ul>
         </div>
     </nav>
 </header>
