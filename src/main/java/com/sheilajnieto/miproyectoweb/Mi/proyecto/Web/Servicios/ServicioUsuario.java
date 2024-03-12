@@ -12,8 +12,7 @@ public interface ServicioUsuario {
     public Iterable<Usuario> obtenerUsuarios();
     public Usuario obtenerUsuarioPorId(Long id);
     public void eliminarUsuario(Long id);
-    public Usuario obtenerUsuarioPorEmail(String nombreUsuario);
-    public Usuario obtenerUsuarioPorNombreUsuario(String nombreUsuario);
+    public Usuario findByNombreUsuario(String nombreUsuario);
 
 }
 

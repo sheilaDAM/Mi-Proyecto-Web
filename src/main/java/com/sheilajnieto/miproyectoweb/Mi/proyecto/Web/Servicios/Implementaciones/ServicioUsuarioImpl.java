@@ -56,12 +56,7 @@ public class ServicioUsuarioImpl implements ServicioUsuario {
     }
 
     @Override
-    public Usuario obtenerUsuarioPorEmail(String nombreUsuario) {
-        return repositorioUsuario.obtenerUsuarioPorEmail(nombreUsuario);
-    }
-
-    @Override
-    public Usuario obtenerUsuarioPorNombreUsuario(String nombreUsuario) {
-        return repositorioUsuario.obtenerUsuarioPorNombreUsuario(nombreUsuario);
+    public Usuario findByNombreUsuario(String nombreUsuario) {
+        return repositorioUsuario.findByNombreUsuario(nombreUsuario);
     }
 }

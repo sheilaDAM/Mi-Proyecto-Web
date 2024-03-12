@@ -1,4 +1,4 @@
-package com.sheilajnieto.miproyectoweb.Mi.proyecto.Web.JWT;
+package com.sheilajnieto.miproyectoweb.Mi.proyecto.Web.Seguridad.JWT;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

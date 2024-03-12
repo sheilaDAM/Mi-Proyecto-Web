@@ -20,7 +20,7 @@ public class ControladorUsuario {
 
     @GetMapping
     public String home() {
-        return "redirect:/listaUsuarios";
+        return "redirect:/usuarios";
     }
 
     //endpoint para listar usuarios en la vista
