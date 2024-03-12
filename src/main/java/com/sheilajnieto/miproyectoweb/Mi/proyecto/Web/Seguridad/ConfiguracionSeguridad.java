@@ -1,5 +1,5 @@
 package com.sheilajnieto.miproyectoweb.Mi.proyecto.Web.Seguridad;
-
+/*
 import com.sheilajnieto.miproyectoweb.Mi.proyecto.Web.Seguridad.JWT.FiltroJWT;
 import com.sheilajnieto.miproyectoweb.Mi.proyecto.Web.Seguridad.JWT.ServicioDetallesUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,13 +17,11 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.web.cors.CorsConfiguration;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-@EnableWebSecurity
 public class ConfiguracionSeguridad {
 
     @Autowired
@@ -43,20 +41,19 @@ public class ConfiguracionSeguridad {
     */
     //------------------------------------ fin Deprecated ------------------------------------
 
-
-    /*
+/*
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
-     */
 
     //------------------------------------ Mejor uso frente al deprecated ------------------------------------
     //vamos a resolver encoders para que no de error en la clase delegatingPasswordEncoder
+    /*
     private final Map<String, PasswordEncoder> encoders = new HashMap<>();
-    //Map.Entry<String, PasswordEncoder> entry = Map.entry("bcrypt", delegatingPasswordEncoder());
     Map.Entry<String, PasswordEncoder> entry2 = Map.entry("noop", NoOpPasswordEncoder.getInstance());
+    //Map.Entry<String, PasswordEncoder> entry = Map.entry("bcrypt", delegatingPasswordEncoder());
     //Map.Entry<String, PasswordEncoder> entry3 = Map.entry("pbkdf2", delegatingPasswordEncoder());
     //Map.Entry<String, PasswordEncoder> entry4 = Map.entry("scrypt", delegatingPasswordEncoder());
     //Map.Entry<String, PasswordEncoder> entry5 = Map.entry("sha256", delegatingPasswordEncoder());
@@ -66,8 +63,9 @@ public class ConfiguracionSeguridad {
         return new DelegatingPasswordEncoder("bcrypt", encoders);
     }
     //------------------------------------ fin Mejor uso frente al deprecated ------------------------------------
+*/
 
-
+/*
     protected SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
                 .authorizeHttpRequests(authorizeRequests ->
@@ -77,7 +75,10 @@ public class ConfiguracionSeguridad {
                                 .requestMatchers("/usuarios", "/usuarios/nuevo", "/usuarios/guardar", "/usuarios/editar/{id}", "/usuarios/eliminar/{id}").hasAnyRole("ADMIN")
                                 .anyRequest().authenticated()
                 )
-                .formLogin(Customizer.withDefaults())
+                .formLogin(form -> form
+                        .loginPage("/milogin")
+                        .defaultSuccessUrl("/homeweb", true) //esta url es a la que se redirigirá si el inicio de sesión es exitoso
+                        .permitAll())
                 .logout(logout -> logout.permitAll())
                 .exceptionHandling(e -> e.accessDeniedPage("/403"));
         httpSecurity.addFilterBefore(filtroJWT, UsernamePasswordAuthenticationFilter.class);
@@ -94,3 +95,5 @@ public class ConfiguracionSeguridad {
 
 
 }
+
+*/
