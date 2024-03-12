@@ -1,5 +1,6 @@
 package com.sheilajnieto.miproyectoweb.Mi.proyecto.Web.Entidades;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.util.Set;
@@ -13,7 +14,13 @@ public class Rol {
     private Long id;
     private String nombre;
 
+    /*
     @ManyToMany(mappedBy = "roles")
+    private Set<Usuario> usuarios;
+     */
+
+    @OneToMany(mappedBy = "rol")
+    @JsonBackReference("usuario-rol")
     private Set<Usuario> usuarios;
 
     public Long getId() {

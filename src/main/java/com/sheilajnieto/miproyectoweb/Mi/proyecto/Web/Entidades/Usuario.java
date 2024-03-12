@@ -1,10 +1,18 @@
 package com.sheilajnieto.miproyectoweb.Mi.proyecto.Web.Entidades;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+import lombok.Data;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
+import java.io.Serializable;
 import java.util.Collection;
 
 @Entity
+@DynamicUpdate
+@DynamicInsert
+@NamedQuery(name = "Usuario.findByNombreUsuario", query = "SELECT u FROM Usuario u WHERE u.nombreUsuario =: nombreUsuario")
 @Table(name = "usuarios", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class Usuario {
 
@@ -21,9 +29,13 @@ public class Usuario {
     @Column(name = "apellidos")
     private String apellidos;
 
+    @Column(name = "email")
     private String email;
+
+    @Column(name = "password")
     private String password;
 
+    /*
     @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinTable(
             name = "usuarios_roles",
@@ -31,6 +43,13 @@ public class Usuario {
             inverseJoinColumns = @JoinColumn(name = "rol_id",referencedColumnName = "id")
     )
     private Collection<Rol> roles;
+
+     */
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "rol_id", referencedColumnName = "id") //rol-id es el campo de la tabla usuario que hace referencia al id de la tabla rol
+    @JsonBackReference("usuario-rol")
+    private Rol rol;
 
     public Long getId() {
         return id;
@@ -80,6 +99,7 @@ public class Usuario {
         this.password = password;
     }
 
+    /*
     public Collection<Rol> getRoles() {
         return roles;
     }
@@ -87,24 +107,35 @@ public class Usuario {
     public void setRoles(Collection<Rol> roles) {
         this.roles = roles;
     }
+     */
 
-    public Usuario(Long id, String nombre, String apellidos, String email, String password, Collection<Rol> roles) {
+    public Rol getRol() {
+        return rol;
+
+    }
+
+    public void setRol(Rol rol) {
+        this.rol = rol;
+    }
+
+
+    public Usuario(Long id, String nombre, String apellidos, String email, String password, Rol rol) {
         super();
         this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.email = email;
         this.password = password;
-        this.roles = roles;
+        this.rol = rol;
     }
 
-    public Usuario(String nombre, String apellidos, String email, String password, Collection<Rol> roles) {
+    public Usuario(String nombre, String apellidos, String email, String password, Rol rol) {
         super();
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.email = email;
         this.password = password;
-        this.roles = roles;
+        this.rol = rol;
     }
 
     public Usuario() {

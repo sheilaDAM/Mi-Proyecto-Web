@@ -4,13 +4,16 @@ import com.sheilajnieto.miproyectoweb.Mi.proyecto.Web.Controlador.DTO.UsuarioDTO
 import com.sheilajnieto.miproyectoweb.Mi.proyecto.Web.Entidades.Usuario;
 import com.sheilajnieto.miproyectoweb.Mi.proyecto.Web.Servicios.Implementaciones.ServicioUsuarioImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class ControladorUsuario {
@@ -41,6 +44,7 @@ public class ControladorUsuario {
     }
 
     //endpoint para guardar un nuevo usuario
+    /*
     @PostMapping("/usuarios/guardar")
     public String guardarUsuario(UsuarioDTO usuario, RedirectAttributes redirectAttributes) {
         try{
@@ -50,6 +54,19 @@ public class ControladorUsuario {
             redirectAttributes.addAttribute("mensaje", e.getMessage());
         }
         return "redirect:/usuarios";
+    }
+
+     */
+
+    //endpoint para guardar usuario
+    @PostMapping("/usuarios/guardar")
+    public ResponseEntity<String> registrarUsuario(@RequestBody(required = true) Map<String, String> requestMap) {
+        try {
+            return servicioUsuarioImpl.registrar(requestMap);
+        }catch (Exception e) {
+            e.getMessage();
+        }
+        return ResponseEntity.ok().body("Error al registrar usuario.");
     }
 
     //endpoint para mostrar el formulario para editar un usuario concreto seleccionado
