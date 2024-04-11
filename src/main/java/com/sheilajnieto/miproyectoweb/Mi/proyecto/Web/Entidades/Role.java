@@ -1,5 +1,5 @@
 package com.sheilajnieto.miproyectoweb.Mi.proyecto.Web.Entidades;
-
+/*
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
@@ -7,21 +7,17 @@ import java.util.Set;
 
 @Entity
 @Table(name = "roles")
-public class Rol {
+public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nombre;
+    private String name;
 
-    /*
-    @ManyToMany(mappedBy = "roles")
-    private Set<Usuario> usuarios;
-     */
 
     @OneToMany(mappedBy = "rol")
     @JsonBackReference("usuario-rol")
-    private Set<Usuario> usuarios;
+    private Set<MyUser> usuarios;
 
     public Long getId() {
         return id;
@@ -31,28 +27,29 @@ public class Rol {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Rol(Long id, String nombre) {
+    public Role(Long id, String name) {
         super();
         this.id = id;
-        this.nombre = nombre;
+        this.name = name;
     }
 
-    public Rol() {
+    public Role() {
 
     }
 
-    public Rol(String nombre) {
+    public Role(String name) {
         super();
-        this.nombre = nombre;
+        this.name = name;
     }
 
 
 }
+*/
