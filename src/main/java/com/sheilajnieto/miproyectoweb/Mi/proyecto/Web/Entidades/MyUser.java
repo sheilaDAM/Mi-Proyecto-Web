@@ -7,20 +7,20 @@ import org.hibernate.annotations.DynamicUpdate;
 @Entity
 @DynamicUpdate
 @DynamicInsert
-@Table(name = "usuarios", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class MyUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "nombre_usuario")
+    @Column(name = "username")
     private String username;
 
-    @Column(name = "nombre")
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "apellidos")
+    @Column(name = "surnames")
     private String surnames;
 
     @Column(name = "email")
@@ -34,6 +34,7 @@ public class MyUser {
     @JoinColumn(name = "rol_id", referencedColumnName = "id") //rol-id es el campo de la tabla usuario que hace referencia al id de la tabla rol
     @JsonBackReference("usuario-rol")
      */
+    @Column(name = "role")
     private String role;
 
     public Long getId() {
